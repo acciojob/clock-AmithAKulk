@@ -1,24 +1,16 @@
 //your JS code here. If required.
 function updateTimer() {
-	const timerElement = document.getElementById('timer');
-	const now = new Date();
-	
-	const options = { 
-		weekday: 'long', 
-	    year: 'numeric', 
-	    month: 'long', 
-	    day: 'numeric', 
-	    hour: '2-digit', 
-	    minute: '2-digit', 
-	    second: '2-digit', 
-	    timeZoneName: 'short' 
-	};
+            var now = new Date();
+            var date = now.toDateString();
+            var time = now.toLocaleTimeString();
+            var dateTimeString = date + ' ' + time;
 
-	const formattedTime = now.toLocaleDateString('en-US', options);
+            document.getElementById('timer').innerText = dateTimeString;
+        }
 
-	timerElement.textContent = formattedTime;
-}
+        // Update the timer every second
+        setInterval(updateTimer);
 
-updateTimer();
-
+        // Initial update
+        updateTimer();
 setInterval(updateTimer, 1000);
